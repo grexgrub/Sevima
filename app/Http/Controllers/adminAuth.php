@@ -71,4 +71,16 @@ class adminAuth extends Controller
         Flasher::setFlash('Login gagal ', 'cek kembali data yang anda masukan', 'warning');
         return back();
     }
+
+    public function logout()
+    {
+        Auth::logout();
+
+        request()->session()->invalidate();
+
+        request()->session()->regenerate();
+
+        return redirect()->route('admin.login');
+    }
+
 }

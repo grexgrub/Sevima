@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <script src="{{ URL::asset('js/jquery.js') }}" ></script>
     <link rel="stylesheet" href="{{ URL::asset('css/auth.css')}}">
+    <link rel="stylesheet" href="{{ URL::asset('css/ck.css')}}">
     <title>{{ $title }}</title>
     @vite('resources/css/app.css')
 </head>
 <body class="bg-gray-100">
-    <main id="main" class="">
+    <main id="main" class="flex">
         @yield('main')
     </main>
    <script type="module"  src="{{ URL::asset('js/flowbite/dist/flowbite.js') }}"></script>

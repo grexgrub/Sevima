@@ -1,0 +1,9 @@
+
+.ck-editor__editable{
+    min-height: 300px;
+}
+
+.null-icon{
+    font-size:6rem;
+    margin-bottom: 10px;
+}
