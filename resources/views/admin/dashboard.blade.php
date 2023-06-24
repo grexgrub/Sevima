@@ -6,7 +6,7 @@ use App\utiliti\Flasher;
 Flasher::flash();
 @endphp
     @include('components.admin.dashboard')
-<div class="p-4 sm:ml-64 w-8/12 h-full mt-20 ">
+<div class="p-4 sm:ml-64 w-8/12 h-full mt-32 ">
     <div class="w-full mb-5 flex items-center justify-between">
         @include('components.admin.search')
         <div class="ml-4">
@@ -27,7 +27,17 @@ $(document).ready(function(){
     const jadwalbtn = document.getElementsByClassName('jadwal-btn')
     for(let i = 0; i < jadwalbtn.length;i++){
         jadwalbtn[i].addEventListener('click', function(){
-            console.log($('.jadwal-btn'))
+            $.ajax({
+                headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                url: 'http://localhost:8000/admin/jadwalKelasModal',
+                data: {data: jadwalbtn[i].getAttribute('data-namaKelas')},
+                method: 'post',
+                success: function(data){
+                    $('#jadwal-modal').html(data);
+                }
+            })
         })
     }
 })

@@ -29,7 +29,7 @@
                     <button type="button" data-modal-target="staticModal" data-modal-toggle="staticModal" data-namaKelas="{{$k['namaKelas']}}" class="focus:outline-none jadwal-btn text-white bg-blue-700 mt-5 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 rounded-sm font-bold text-sm px-3 py-1 mb-2 ">Jadwal</button>
                 </td>
                 <td class="px-6 py-2">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline ml-2">Edit</a>
+                    <a href="/admin/edit/{{$k['namaKelas']}}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline ml-2">Edit</a>
                     <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline ml-2">Delete</a>
                     <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline ml-2">Detail</a>
                 </td>

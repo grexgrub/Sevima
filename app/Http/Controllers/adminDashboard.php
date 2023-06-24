@@ -21,20 +21,39 @@ class adminDashboard extends Controller
             'kelas' => $dataKelas
         ]);
     }
+    public function editKelas($namaKelas)
+    {
+
+        $kelas = kelas::where('namaKelas', $namaKelas)->first();
+        return view('admin.tambahkelas', [
+            'title' => 'tambah siswa',
+            'tempat' => 'Tambah Kelas',
+            'save' => 'true',
+            'kelas' => $kelas
+        ]);
+
+    }
     public function tambahKelasView()
     {
 
         return view('admin.tambahkelas', [
             'title' => 'tambah siswa',
             'tempat' => 'Tambah Kelas',
+            'save' => 'false'
         ]);
     }
     public function tambahKelas(Request $req)
     {
         $valid = Validator::make($req->all(), [
-            'namaKelas' => 'required',
+            'namaKelas' => 'required|unique:kelas,namaKelas',
             'editor' => 'required'
-        ])->validateWithBag('tambahSiswa');
+        ])->validateWithBag('tambahKelas');
+
+        if($req->save == 'true') {
+            kelas::where('namaKelas', $req->namaKelas)->update(['jadwalKelas' => $req->editor]);
+            Flasher::setFlash('Update', 'berhasil', 'success');
+            return redirect()->route('admin.tambah.kelas.view')->withInput();
+        }
 
         kelas::create([
             'namaKelas' => $req->namaKelas,
@@ -44,5 +63,11 @@ class adminDashboard extends Controller
         Flasher::setFlash('Tambah Kelas', ' berhasil', 'success');
 
         return redirect()->route('admin.tambah.kelas.view');
+    }
+    public function jadwalKelasModal(Request $req)
+    {
+        $jadwal = kelas::where('namaKelas', $req->data)->pluck('jadwalKelas')->first();
+        return response()->json($jadwal);
+
     }
 }

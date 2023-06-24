@@ -30,9 +30,6 @@
               </div>
               <ul class="py-1" role="none">
                 <li>
-                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 " role="menuitem">Dashboard</a>
-                </li>
-                <li>
                   <a href="{{route('admin.logout')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 " role="menuitem">Logout</a>
                 </li>
               </ul>

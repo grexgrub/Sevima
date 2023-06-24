@@ -2,10 +2,6 @@
 
 
 @section('main')
-@php
-use App\utiliti\Flasher;
-Flasher::flash();
-@endphp
 <form action="{{route('admin._login')}}" id="login-user-form" class="w-4/12 form-login bg-white flex flex-col p-3 py-16 shadow-lg" method="post">
     @csrf
     @include('components.loginUser', ['type' => 'a']);
@@ -14,7 +10,4 @@ Flasher::flash();
         Clesson
     </div>
 </form>
-@if(session('warning'))
-    @include('script.peringatan')
-@endif
 @endSection()
