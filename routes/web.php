@@ -44,6 +44,10 @@ Route::prefix('admin')->group(function () {
 });
 
 Route::prefix('siswa')->group(function () {
+    Route::get('/', [siswaAuth::class, 'index'])->name('siswa.login.view');
     Route::get('/register', [siswaAuth::class, 'register'])->name('siswa.register');
     Route::post('/register', [siswaAuth::class, '_register'])->name('siswa._register');
+    Route::get('/login', [siswaAuth::class, 'index'])->name('siswa.login.view');
+    Route::post('/login', [siswaAuth::class, 'login'])->name('siswa.login');
+    Route::get('/dashboard', [siswaAuth::class, 'dashboard'])->name('siswa.auth');
 });

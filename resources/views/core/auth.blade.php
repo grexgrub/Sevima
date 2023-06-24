@@ -13,9 +13,16 @@
     @vite('resources/css/app.css')
 </head>
 <body >
+@php
+use App\utiliti\Flasher;
+Flasher::flash();
+@endphp
     <main id="main" class="w-full h-full bg-gray-100">
         @yield('main')
     </main>
     @yield('script')
+@if(session('warning'))
+    @include('script.peringatan')
+@endif
 </body>
 </html>

@@ -4,13 +4,13 @@
         <{{$type}} href="{{route('admin.register')}}" class="flex-grow bg-blue-499 hover:bg-blue-300 flex justify-center items-center rounded-sm" type="button" id="murid-btn" type="button">Register</{{$type}}>
     </div>
     <div class="w-10/12 self-center mt-5">
-        <label for="small-input" class="block mb-1 bold font-medium " id="username" name="username">{{$type == 'a' ? 'email' : 'nama'}}</label>
-        <input  type="text" id="{{$type == 'a' ? 'email' : 'name'}}" name="{{$type == 'a' ? 'email' : 'name'}}" class="block w-full p-1 text-gray-900 border border-gray-300 rounded-sm bg-gray-50 focus:ring-blue-500 focus:border-blue-500 ">
-        <span class="text-red-699 text-sm">{{ $errors->login->first('email') }}</span>
+        <label for="small-input" class="block mb-1 bold font-medium " id="username" name="username">{{$type == 'a' ? 'email' : 'No Siswa'}}</label>
+        <input  type="text" id="{{$type == 'a' ? 'email' : 'noSiswa'}}" name="{{$type == 'a' ? 'email' : 'noSiswa'}}" class="block w-full p-1 text-gray-900 border border-gray-300 rounded-sm bg-gray-50 focus:ring-blue-500 focus:border-blue-500 ">
+        <span class="text-red-700 text-sm">{{$type == 'a' ? $errors->login->first('email') : $errors->login->first('noSiswa')}}</span>
     </div>
     <div class="w-10/12 self-center mt-5">
         <label for="small-input" class="block mb-2 bold font-medium ">Password</label>
-        <input value="{{old('password')}}" type="text" id="password" name="password" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-sm bg-gray-50 focus:ring-blue-500 focus:border-blue-500 ">
+        <input value="{{old('password')}}" type="password" id="password" name="password" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-sm bg-gray-50 focus:ring-blue-500 focus:border-blue-500 ">
         <span class="text-red-700 text-sm">{{ $errors->login->first('password')}}</span>
     </div>
     <div class="flex items-center mt-4 self-center w-10/12">

@@ -13,6 +13,7 @@ class siswa extends Authenticatable
     use HasFactory;
     use Notifiable;
     public $timestamps = false;
+    public $guard = 'siswa';
 
     protected $fillable = [
         'nama',

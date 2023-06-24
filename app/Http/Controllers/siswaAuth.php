@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\siswa;
+use App\utiliti\Flasher;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -53,7 +54,8 @@ class siswaAuth extends Controller
         ]);
 
 
-        return back();
+        Flasher::setFlash('Registrasi', ' berhasin', 'success');
+        return redirect()->route('siswa.login');
 
 
     }
@@ -63,14 +65,17 @@ class siswaAuth extends Controller
         $valid = Validator::make($req->all(), [
             'noSiswa' => 'required|integer',
             'password' => 'required',
-        ])->validateWithBag('siswaLogin');
+        ])->validateWithBag('login');
 
-        if(Auth::guard('siswa')->attempt(['noSiswa' => $req->noSiswa, 'password' => $req->password])) {
-            $request->session()->regenerate();
-            session(['logedin' => true, 'email' => $request->email]);
-            return redirect()->route('admin.dashboard');
 
+        if (Auth::guard('siswa')->attempt(['noSiswa' => $req->noSiswa, 'password' => $req->password])) {
+            $req->session()->regenerate();
+            session(['logedin' => true, 'noSiswa' => $req->noSiswa]);
+            return redirect()->route('siswa.dashboard');
         }
+
+        Flasher::setFlash('Login gagal ', 'cek kembali data yang anda masukan', 'warning');
+        return back();
 
 
 
