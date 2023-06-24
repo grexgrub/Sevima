@@ -4,6 +4,8 @@ use App\Http\Controllers\adminAuth;
 use App\Http\Controllers\adminDashboard;
 use App\Http\Controllers\siswaAuth;
 use App\Http\Controllers\siswaController;
+use App\Http\Controllers\guru;
+use App\Http\Controllers\guruController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -55,4 +57,14 @@ Route::prefix('siswa')->group(function () {
     Route::get('/logout', [siswaAuth::class, 'logout'])->name('siswa.logout');
     Route::get('/buatcatatan', [siswaController::class, 'buatcatatan'])->name('siswa.buatcatatan');
     Route::post('/savecatatan', [siswaController::class, 'savecatatan'])->name('siswa.savecatatan');
+});
+
+Route::prefix('guru')->group(function () {
+    Route::get('/', [guruController::class, 'index'])->name('guru.login');
+    Route::get('/login', [guruController::class, 'index'])->name('guru.login');
+    Route::post('/_login', [guruController::class, 'login'])->name('guru._login');
+    Route::get('/register', [guruController::class, 'register'])->name('guru.register');
+    Route::get('/logout', [guruController::class, 'logout'])->name('guru.logout');
+    Route::post('/_register', [guruController::class, '_register'])->name('guru._register');
+    Route::get('/dashboard', [guruController::class, 'dashboard'])->name('guru.dashboard');
 });

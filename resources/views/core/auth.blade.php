@@ -12,7 +12,7 @@
     <title>{{ $title }}</title>
     @vite('resources/css/app.css')
 </head>
-<body >
+<body>
 @php
 use App\utiliti\Flasher;
 Flasher::flash();
