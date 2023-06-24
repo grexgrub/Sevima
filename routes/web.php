@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\adminAuth;
 use App\Http\Controllers\adminDashboard;
+use App\Http\Controllers\siswaAuth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,6 +23,7 @@ Route::get('/', function () {
 })->name('login.default');
 
 Route::prefix('admin')->group(function () {
+    Route::get('/', [adminAuth::class, 'index'])->name('admin.login');
     Route::get('/login', [adminAuth::class, 'index'])->name('admin.login');
     Route::post('/_login', [adminAuth::class, 'login'])->name('admin._login');
     Route::get('/register', [adminAuth::class, 'register'])->name('admin.register');
@@ -42,5 +44,6 @@ Route::prefix('admin')->group(function () {
 });
 
 Route::prefix('siswa')->group(function () {
-    Route::get('/register', []);
+    Route::get('/register', [siswaAuth::class, 'register'])->name('siswa.register');
+    Route::post('/register', [siswaAuth::class, '_register'])->name('siswa._register');
 });

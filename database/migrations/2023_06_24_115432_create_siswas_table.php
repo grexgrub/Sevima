@@ -16,14 +16,13 @@ return new class () extends Migration {
             $table->string('email')->nullable();
             $table->string('kelas');
             $table->integer('noSiswa');
-            $table->boolean('noAbsen')->default(false);
+            $table->boolean('aktif')->default(false);
+            $table->integer('noAbsen');
             $table->string('token')->nullable();
             $table->string('password')->nullable();
-            $table->string('jenisKelamin')->nullable();
+            $table->enum('jenisKelamin', ['L','P'])->nullable();
             $table->integer('umur')->nullable();
-            $table->integer('noAbsen');
             $table->string('foto')->nullable();
-            $table->timestamps();
         });
     }
 
