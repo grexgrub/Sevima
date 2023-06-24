@@ -17,21 +17,23 @@
             </tr>
         </thead>
         <tbody>
+            @foreach ($kelas as $k)
             <tr class="bg-white border-b ">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                    10-ipa
+                <th scope="row" class="px-6 py-2 font-medium text-gray-900 whitespace-nowrap">
+                    {{$k['namaKelas']}}
                 </th>
-                <td class="px-6 py-4">
-                    Laptop
+                <td class="px-6 py-2">
+                    32
                 </td>
-                <td class="px-6 py-4">
-                    <button>jadwal</button>
+                <td class="px-6 py-2">
+                    <button type="button" data-modal-target="staticModal" data-modal-toggle="staticModal" data-namaKelas="{{$k['namaKelas']}}" class="focus:outline-none jadwal-btn text-white bg-blue-700 mt-5 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 rounded-sm font-bold text-sm px-3 py-1 mb-2 ">Jadwal</button>
                 </td>
-                <td class="px-6 py-4">
+                <td class="px-6 py-2">
                     <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline ml-2">Edit</a>
                     <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline ml-2">Delete</a>
                     <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline ml-2">Detail</a>
                 </td>
             </tr>
+            @endforeach
     </table>
 </div>

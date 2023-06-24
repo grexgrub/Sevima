@@ -19,7 +19,7 @@ class Flasher
     public static function flash()
     {
         if(session('warning')) {
-            echo '<div class="z-50 box-loading '. session('warning')['alert'] .' "><strong>'.session('warning')['pesan'].'</strong>'. session('warning')['aksi'] .' <div class="loading"> </div></div>';
+            echo '<div class=" box-loading '. session('warning')['alert'] .' "><strong>'.session('warning')['pesan'].'</strong>'. session('warning')['aksi'] .' <div class="loading"> </div></div>';
         }
     }
 }

@@ -26,5 +26,6 @@ Route::prefix('admin')->group(function () {
     Route::get('/logout', [adminAuth::class, 'logout'])->name('admin.logout');
     Route::post('/_register', [adminAuth::class, '_register'])->name('admin._register');
     Route::get('/dashboard', [adminDashboard::class, 'index'])->name('admin.dashboard')->middleware('auth.admin');
-    Route::get('/tambah-kelas', [adminDashboard::class, 'tambahKelasView'])->name('admin.tambah.kelas.view');
+    Route::get('/tambah-kelas', [adminDashboard::class, 'tambahKelasView'])->name('admin.tambah.kelas.view')->middleware('auth.admin');
+    Route::post('/tambah-kelas', [adminDashboard::class, 'tambahKelas'])->name('admin.tambah.kelas')->middleware('auth.admin');
 });

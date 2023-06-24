@@ -9,7 +9,7 @@
                <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
             </svg>
          </button>
-            <div>logo</div>
+            <div>{{$tempat}}</div>
       </div>
       <div class="flex items-center">
           <div class="flex items-center ml-3">
@@ -25,7 +25,7 @@
                   Neil Sims
                 </p>
                 <p class="text-sm font-medium text-gray-900 truncate" role="none">
-                  neil.sims@flowbite.com
+                    {{session('email')}}
                 </p>
               </div>
               <ul class="py-1" role="none">
@@ -47,8 +47,8 @@
    <div class="h-full px-3 pb-4 overflow-y-auto bg-white">
       <ul class="space-y-2 font-medium">
          <li>
-            <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100">
-                <i class="fa-solid fa-book"></i>
+            <a href="{{route('admin.dashboard')}}" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100">
+                <i class="fa-solid fa-school"></i>
                <span class="ml-3">Kelas</span>
             </a>
          </li>

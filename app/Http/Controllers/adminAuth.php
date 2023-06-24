@@ -64,7 +64,7 @@ class adminAuth extends Controller
 
         if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password,])) {
             $request->session()->regenerate();
-            session(['logedin' => true, 'email' => $request->username]);
+            session(['logedin' => true, 'email' => $request->email]);
             return redirect()->route('admin.dashboard');
         }
 
