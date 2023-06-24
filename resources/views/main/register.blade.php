@@ -2,11 +2,6 @@
 
 
 @section('main')
-<?php
-
-use App\utiliti\Flasher;
-
-Flasher::flash(); ?>
 <form action="{{ route('user._registering') }}" id="login-user-form" class="w-4/12 form-login bg-white flex flex-col px-6 py-16 shadow-lg" method="post">
     @csrf
   <div class="mb-6">

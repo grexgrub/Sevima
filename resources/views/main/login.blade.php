@@ -3,12 +3,6 @@
 
 
 @section('main')
-<?php
-
-use App\utiliti\Flasher;
-
-Flasher::flash()
-?>
 <form action="{{ route('user.login.owner') }}" id="login-user-form" class="w-4/12 form-login bg-white flex flex-col p-3 py-16 shadow-lg" method="post">
     @csrf
     @include('components/loginUser')

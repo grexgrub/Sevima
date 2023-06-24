@@ -1,14 +1,14 @@
 $(document).ready(function(){
 
     const cekUsername = function(){
-          if ($('#username').val().length > 0){
-            $('#usernameWarn').html('Good')
-            $('#usernameWarn').removeClass('text-red-600')
-            $('#usernameWarn').addClass('text-green-600')
-          }else if ($('#username').val() < 1){
-            $('#usernameWarn').html('Harus di isi')
-            $('#usernameWarn').removeClass('text-green-600')
-            $('#usernameWarn').addClass('text-red-600')
+          if ($('#name').val().length > 0){
+            $('#nameWarn').html('Good')
+            $('#nameWarn').removeClass('text-red-600')
+            $('#nameWarn').addClass('text-green-600')
+          }else if ($('#name').val() < 1){
+            $('#nameWarn').html('Harus di isi')
+            $('#nameWarn').removeClass('text-green-600')
+            $('#nameWarn').addClass('text-red-600')
           }
     }
 
@@ -125,7 +125,8 @@ $(document).ready(function(){
 
     cekEmail()
     cekUsername()
-    $('#username').on('input',(e) => {
+    cekPassword()
+    $('#name').on('input',(e) => {
         cekUsername()
     })
     $('#email').on('input', (e)=> {
