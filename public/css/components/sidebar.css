@@ -1,0 +1,184 @@
+:root{
+  font-size: 16px;
+  font-family: Arial;
+  --primary-color: #b6b6b6;
+  --secondary-color: #ececec;
+  --bg-primary: #23232e;
+  --bg-secondary: #141418;
+}
+
+body::-webkit-scrollbars{
+  width: 1rem;
+}
+
+body::-webkit-scrollbar-track{
+  background: blue;
+}
+
+
+body{
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+
+.sidebar{
+  position: fixed;
+  height: 100vh;
+  width: 5rem;
+  transition: 200ms ease;
+  z-index: 999;
+}
+
+.navbar-nav{
+  padding: 0;
+  margin: 0;
+  display: flex;
+  list-style: none;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.navbar-item{
+  width: 100%;
+  margin-top: 1rem;
+}
+
+
+.navbar-link{
+  transition: 200ms;
+  text-decoration: none;
+  display: flex;
+  height: 5rem;
+  font-weight: 500;
+}
+
+
+.navbar-link:hover i{
+    color: #9141ac;
+}
+
+.navbar-link:hover .link{
+  background: var(--bg-secondary);
+}
+
+.navbar-link:hover .link-text{
+  color: black;
+}
+
+.link-icon{
+    width: 5rem;
+    font-size: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #77767b;
+}
+
+
+
+
+.link-text{
+  display: none;
+  height: 100%;
+  align-items: center;
+}
+
+#main{
+  height: 100vh;
+  overflow: scroll;
+  margin-left: 5rem;
+}
+
+.scroll{
+    height: 101vh;
+}
+
+
+.logo{
+  height: 5rem;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+
+.logo-text{
+  display: none;
+  margin-left: 3rem;
+  font-size: 2rem;
+  align-items: center;
+}
+
+.logo-icon {
+    font-size: 4rem;
+    margin: auto;
+    color: #613583;
+    transition: 400ms;
+}
+
+
+.active{
+    color: #9141ac;
+}
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 1000px) {
+  .sidebar{
+    display: flex;
+    width: 98vw;
+    height: 4rem;
+    justify-content:center;
+    bottom: 0;
+    margin-left: 1vw;
+    margin-right: 0.5vw;
+    margin-bottom: 0.5vw;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .sidebar:hover{
+    width: 99vw;
+  }
+  .navbar-nav{
+    flex-direction: row;
+    width: 100%;
+  }
+  .sidebar:hover .link-text{
+    display: none;
+  }
+  .navbar-item{
+    display: flex;
+    margin: 0;
+  }
+  #main{
+    margin-left: 0;
+  }
+  .logo{
+    display: none;
+  }
+  .navbar-link{
+    display: flex;
+    align-items: center;
+  }
+  .link-icon{
+     font-size: 2rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,20 @@
+:root{
+    fon-size: 16px;
+}
+
+
+
+
+#main{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.pilihan-login{
+    height:45px;
+}
+
