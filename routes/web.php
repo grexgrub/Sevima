@@ -3,6 +3,7 @@
 use App\Http\Controllers\adminAuth;
 use App\Http\Controllers\adminDashboard;
 use App\Http\Controllers\siswaAuth;
+use App\Http\Controllers\siswaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -49,5 +50,9 @@ Route::prefix('siswa')->group(function () {
     Route::post('/register', [siswaAuth::class, '_register'])->name('siswa._register');
     Route::get('/login', [siswaAuth::class, 'index'])->name('siswa.login.view');
     Route::post('/login', [siswaAuth::class, 'login'])->name('siswa.login');
-    Route::get('/dashboard', [siswaAuth::class, 'dashboard'])->name('siswa.auth');
+    Route::get('/dashboard', [siswaController::class, 'index'])->name('siswa.dashboard');
+    Route::get('/catatan', [siswaController::class, 'catatan'])->name('siswa.catatan');
+    Route::get('/logout', [siswaAuth::class, 'logout'])->name('siswa.logout');
+    Route::get('/buatcatatan', [siswaController::class, 'buatcatatan'])->name('siswa.buatcatatan');
+    Route::post('/savecatatan', [siswaController::class, 'savecatatan'])->name('siswa.savecatatan');
 });

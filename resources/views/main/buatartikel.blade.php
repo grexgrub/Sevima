@@ -1,4 +1,4 @@
-@extends('layout.main')
+@extends('core.main')
 
 
 
@@ -22,5 +22,5 @@
 <script src="{{ URL::asset('js/ckeditor/ckeditor5super.js') }}"></script>
 <script src="{{ URL::asset('js/components/description-filler.js') }}"></script>
 <script src="{{ URL::asset('js/components/saveORupload.js') }}"></script>
-@include('ckeditor')
+@include('catatanCk')
 @endsection()

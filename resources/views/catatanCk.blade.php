@@ -6,9 +6,10 @@
                 toolbar: {
                     items: [
                         'heading', '|',
-                        'bold', 'italic', 'insertTable', 'underline', '|',
+                        'bold', 'italic', 'insertImage', 'underline', '|',
                         'undo', 'redo',
                         'fontSize', 'fontFamily', '|',
+                        'specialCharacters','sourceEditing'
                     ],
                     shouldNotGroupWhenFull: true
                 },

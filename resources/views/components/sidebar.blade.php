@@ -23,7 +23,7 @@
           </a>
         </li>
         <li class="mt-auto self-end justify-self-end h-20 w-20 flex justify-center items-center">
-            <a href="{{route('user.logout')}}" class="p-2 bg-green-500 rounded">log out</a>
+            <a href="{{route('siswa.logout')}}" class="p-2 bg-green-500 rounded">log out</a>
         </li>
       </ul>
   </nav>

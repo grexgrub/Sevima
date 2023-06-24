@@ -1,5 +1,5 @@
 @foreach ($catatan as $c)
-<div class="lg:max-w-sm md:w-4/12 w-max p-6 bg-white border border-gray-200 rounded-lg shadow m-3">
+<div class="lg:max-w-sm md:w-5/12 w-max p-6 bg-white border border-gray-200 rounded-lg shadow m-3">
     <a href="#">
         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">{{ $c->getAttributes()['judul'] }}</h5>
     </a>
