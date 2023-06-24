@@ -19,18 +19,20 @@ use App\utiliti\Flasher;
     @yield('css')
 </head>
 <body class="bg-gray-50">
+@php
+use App\utiliti\Flasher;
+Flasher::flash();
+@endphp
    @include('components.sidebar')
     <main id="main" class="relative {{($title == 'Baca' ? 'py-0' : 'py-4')}} lg:px-4">
         <div class="absolute w-1 scroll"></div>
         @yield('main')
     </main>
-<script>
-$('#main').on('load', function(){
-    $('#load').addClass('hidden');
-})
-</script>
    @yield('script')
    <script type="module"  src="{{ URL::asset('js/main.js') }}"></script>
    <script type="module"  src="{{ URL::asset('js/flowbite/dist/flowbite.js') }}"></script>
+@if(session('warning'))
+    @include('script.peringatan')
+@endif
 </body>
 </html>

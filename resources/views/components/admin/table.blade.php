@@ -16,7 +16,7 @@
                 </th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="admin-kelas-body">
             @foreach ($kelas as $k)
             <tr class="bg-white border-b ">
                 <th scope="row" class="px-6 py-2 font-medium text-gray-900 whitespace-nowrap">
@@ -30,7 +30,7 @@
                 </td>
                 <td class="px-6 py-2">
                     <a href="/admin/edit/{{$k['namaKelas']}}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline ml-2">Edit</a>
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline ml-2">Delete</a>
+                    <a href="/admin/delete/{{$k['namaKelas']}}" onclick="return confirm('apakah anda yakin menghapus kelas')" class="font-medium text-blue-600 dark:text-blue-500 hover:underline ml-2">Delete</a>
                     <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline ml-2">Detail</a>
                 </td>
             </tr>

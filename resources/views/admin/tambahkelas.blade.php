@@ -8,12 +8,12 @@
         @csrf
         <div {{$save == 'true' ? 'hidden' : ''}}>
             <label for="small-input" class="block mb-2 text-md font-medium text-gray-900">Nama Kelas</label>
-            <input value="{{old('namaKelas')}}" type="text" id="small-input" name="namaKelas" id="namaKelas" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-sm bg-gray-50 text-md focus:ring-blue-500 focus:border-blue-500">
+            <input value="{{old('namaKelas')}}{{isset($kelas) && $save == 'true' ? $kelas['id'] : ''}}" type="text" id="small-input" name="namaKelas" id="namaKelas" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-sm bg-gray-50 text-md focus:ring-blue-500 focus:border-blue-500">
             <span class="text-red-700 text-sm">{{ $errors->tambahKelas->first('namaKelas') }}</span>
         </div>
         <div class="mt-4">
             <label for="small-input" class="block mb-2 text-md font-medium text-gray-900">Jadwal</label>
-            <textarea name="editor" id="editor" cols="30" rows="10">{{ old('editor') }}</textarea>
+            <textarea name="editor" id="editor" cols="30" rows="10">{{ old('editor') }}{{isset($kelas) && $save == 'true' ? $kelas['jadwalKelas'] : ''}}</textarea>
             <span class="text-red-700 text-sm">{{ $errors->tambahKelas->first('editor') }}</span>
         </div>
         <input type="text" name="save" id="save" value="{{$save == 'true' ? $save : ''}}" hidden>
