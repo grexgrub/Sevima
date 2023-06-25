@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ URL::asset('css/components/peringatan.css') }}">
-    <link rel="stylesheet" href="{{ URL::asset('css/auth.css')}}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <script src="{{ URL::asset('js/jquery.js') }}" ></script>
     <script src="https://kit.fontawesome.com/57645609e7.js" crossorigin="anonymous"></script>
@@ -13,13 +12,9 @@
     @vite('resources/css/app.css')
     @yield('css')
 </head>
-<body class="bg-gray-50">
-@php
-use App\utiliti\Flasher;
-Flasher::flash();
-@endphp
+    <body class="bg-gray-50 h-screen">
    @include('components.sidebar')
-    <main id="main" class="relative h-full {{($title == 'Baca' ? 'py-0' : 'py-4')}} lg:px-4">
+    <main id="main" class="relative overflow-scroll {{($title == 'Baca' ? 'py-0' : 'py-4')}} lg:px-4">
         <div class="absolute w-1 scroll"></div>
         @yield('main')
     </main>

@@ -5,9 +5,9 @@
           <i class="fa-solid fa-angles-right logo-icon"></i>
         </li>
         <li class="navbar-item">
-          <a href="/materi" data-tooltip-placement='right' data-tooltip-target="tooltip-artikel" class="navbar-link hover:bg-gray-300 {{ $title == 'artikel' ? 'bg-gray-300 text-black' : ''}}">
+          <a href="{{route('siswa.materi')}}" data-tooltip-placement='right' data-tooltip-target="tooltip-artikel" class="navbar-link hover:bg-gray-300 {{ $title == 'artikel' ? 'bg-gray-300 text-black' : ''}}">
             <i class="fa-solid fa-book-open-reader link-icon {{ $title == 'artikel' ? 'active' : ''}}"></i>
-            <span class="link-text text-gray-500"><strong>Artikel</strong></span>
+            <span class="link-text text-gray-500"><strong>materi</strong></span>
           </a>
           <a href="{{route('siswa.catatan')}}" data-tooltip-placement='right' data-tooltip-target="tooltip-buatartikel" class="navbar-link {{ $title == 'buatartikel' ? 'bg-gray-300' : ''}}  hover:bg-gray-300">
             <i class="fa-solid fa-pen-to-square link-icon {{ $title == 'buatartikel' ? 'active' : ''}}"></i>

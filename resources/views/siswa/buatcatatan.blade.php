@@ -3,7 +3,7 @@
 
 
 @section('main')
-<form action="{{route('siswa.savecatatan')}}" method="post" id="artikelform" class="container mx-auto flex-col justify-evenly md:justify-start w-10/12  flex-wrap flex columns-4">
+<form action="{{route('siswa.savecatatan')}}" method="post" id="artikelform" class="container mx-auto flex-col justify-evenly md:justify-start w-10/12 h-full overflow-scroll   flex-wrap flex columns-4">
     @csrf
     <div class="flex-col flex mb-4 w-full lg:w-6/12">
         <label for="small-input" class="block mb-1 bold font-medium " id="username" name="username">Judul</label>

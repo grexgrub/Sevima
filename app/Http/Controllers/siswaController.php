@@ -10,6 +10,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Validator;
 use App\Models\siswa;
+use App\Models\materi;
 use Carbon\Carbon;
 
 class siswaController extends Controller
@@ -57,4 +58,26 @@ class siswaController extends Controller
         return back();
 
     }
+    public function materi()
+    {
+        $siswa = siswa::where('noSiswa', session('noSiswa'))->first();
+        $materi = materi::where('kelas', $siswa['kelas'])->paginate(10);
+
+
+        return view('siswa.home', [
+            'title' => 'materi',
+            'materi' => $materi,
+
+        ]);
+    }
+    public function baca($materi)
+    {
+        $Baca = materi::where('slug', $materi)->first();
+        return view('siswa.read', [
+            'materi' => $Baca,
+            'title' => 'Baca'
+        ]);
+
+    }
+
 }

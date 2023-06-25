@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\guru;
+use App\Models\materi;
 use App\utiliti\Flasher;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
@@ -87,5 +89,37 @@ class guruController extends Controller
         request()->session()->regenerate();
 
         return redirect()->route('admin.login');
+    }
+    public function buatmateri()
+    {
+        return view('guru.buatmateri', [
+            'title' => 'buatmateri',
+
+        ]);
+    }
+    public function upload(Request $req)
+    {
+        $valid = Validator::make($req->all(), [
+            'judul' => 'required|regex:/^[\pL\s\-]+$/u',
+            'kelas' => 'required|exists:kelas,namaKelas',
+            'editor' => 'required|min:20'
+        ])->validateWithBag('save');
+
+
+        materi::create([
+            'judul' => $req->judul,
+            'slug' => Str::of($req->judul)->slug('-'),
+            'isi' => $req->editor,
+            'kelas' => $req->kelas,
+            'author' => session('email'),
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+        ]);
+
+
+        Flasher::setFlash('Buat Materi', 'Berhasil', 'warning');
+        return redirect()->route('guru.dashboard');
+
+
     }
 }

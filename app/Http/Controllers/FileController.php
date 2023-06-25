@@ -14,14 +14,14 @@ class FileController extends Controller
     public function index(Request $request)
     {
         $valid = $request->validate([
-            'upload' => 'image|file|max:512'
+            'upload' => 'image|file|max:1024'
         ]);
 
         if(!$valid) {
             return redirect('/buatartikel');
         }
 
-        $path = $request->file('upload')->store('artikel');
+        $path = $request->file('upload')->store('gambar', 'public');
 
         return response()->json(['uploaded' => true, 'url' => 'http://localhost:8000/storage/'.$path ]);
 
